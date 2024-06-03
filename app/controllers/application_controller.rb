@@ -1,24 +1,14 @@
 class ApplicationController < ActionController::Base
+  before_action :authenticate_user!
 
-  def index
-    @goats = Goat.all
-  end
+  # for devise
+  before_action :configure_permitted_parameters, if: :devise_controller?
 
-  def show
-    @goat = Goat.find(params[:id])
-  end
+  def configure_permitted_parameters
+    # For additional fields in app/views/devise/registrations/new.html.erb
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name])
 
-  def new
-    @goat = Goat.new
-  end
-
-  def create
-    @goat = Goat.new(goat_params)
-    @goat = Goat.save
-    # redirect_to...
-  end
-
-  def update
-    @goat.update
+    # For additional in app/views/devise/registrations/edit.html.erb
+    devise_parameter_sanitizer.permit(:account_update, keys: [:first_name, :last_name])
   end
 end

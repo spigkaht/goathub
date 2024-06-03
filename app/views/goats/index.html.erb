@@ -1,0 +1,21 @@
+<% @goats.each do |goat| %>
+  <div class="border">
+    <p>Name: <%= goat.name %></p>
+    <p>Price: <%= goat.price %></p>
+    <p>Color: <%= goat.color %></p>
+    <p>Personality: <%= goat.personality %></p>
+    <p>Weight: <%= goat.weight %></p>
+    <p>Age: <%= goat.age %></p>
+  </div>
+<% end %>
+
+<h1>Add New Goat</h1>
+<%= simple_form_for @goat do |f| %>
+  <%= f.input :name %>
+  <%= f.input :color %>
+  <%= f.input :personality %>
+  <%= f.input :weight %>
+  <%= f.input :age %>
+  <%= f.input :price %>
+  <%= f.submit "Submit Goat", class: "btn btn-primary" %>
+<% end %>
