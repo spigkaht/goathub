@@ -14,3 +14,6 @@
 </div>
 </div>
 <div><%= link_to "Edit Goat", edit_goat_path(@goat), class: "btn btn-primary mt-3" %></div>
+
+
+<div><%= link_to "Delete Goat", goat_path(@goat), class: "btn btn-danger", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></div>

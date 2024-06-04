@@ -39,8 +39,9 @@ class GoatsController < ApplicationController
 
   # DELETE /goats/:id goats#destroy
   def destroy
+    @goat = Goat.find(params[:id])
     @goat.destroy
-    redirect_to goat_path(@goat)
+    redirect_to goats_path(@goats)
   end
 
   # As a user, I can navigate on the website from the navbar (with functional links, e.g. “signin/signout”, “My bookings”, “Publish an offer”, etc.)
