@@ -1,7 +1,7 @@
 
 <%# <img src="Boris-the-goat.jpg" alt="goat"> %>
 <div class="container-show">
-  <%# <%= cl_image_tag @goat.photo.key, height: 300, width: 400, crop: :fill  %>
+  <%= cl_image_tag @goat.photo.key, height: 300, width: 400, crop: :fill %>
 <div class="info-card d-flex flex-column">
   <h1><%= @goat.name %></h1>
   <li><%= @goat.personality %></li>
@@ -13,3 +13,4 @@
 </div>
 </div>
 </div>
+<div><%= link_to "Edit Goat", edit_goat_path(@goat), class: "btn btn-primary mt-3" %></div>
