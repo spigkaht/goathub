@@ -11,16 +11,4 @@
 <% end %>
   </div>
 
-<div class="new_goat">
-<h3>Add New Goat</h3>
-<div class="goat_form">
-<%= simple_form_for @goat do |f| %>
-  <%= f.input :name %>
-  <%= f.input :color %>
-  <%= f.input :personality %>
-  <%= f.input :weight %>
-  <%= f.input :age %>
-  <%= f.input :price %>
-  <%= f.submit "Submit Goat", class: "btn btn-primary" %>
-<% end %></div>
-</div>
+<%= render "form", goat: @goat %>
