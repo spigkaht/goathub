@@ -5,5 +5,22 @@
 
  .container-show {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
+  // align-items: end;
+  img {
+    border-radius: 5px;
+    box-shadow: 0.5px 0.5px 0.5px black;
+  }
+ }
+
+ .info-card {
+  margin-left: 5px;
+ }
+
+ .button {
+  margin-top: auto;
+
+  p {
+    margin: 0;
+  }
  }
