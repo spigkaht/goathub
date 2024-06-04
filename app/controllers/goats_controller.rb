@@ -26,8 +26,16 @@ class GoatsController < ApplicationController
   end
 
   # GET /goats/:id/edit goats#edit edit_goat_path
+  def edit
+    @goat = Goat.find(params[:id])
+  end
 
   # PATCH /goats/:id goats#update
+  def update
+    @goat = Goat.find(params[:id])
+    @goat.update(goat_params)
+    redirect_to goat_path(@goat)
+  end
 
   # DELETE /goats/:id goats#destroy
 
