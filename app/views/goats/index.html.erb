@@ -1,16 +1,19 @@
-  <div class="border">
+  <div class="container">
 <% @goats.each do |goat| %>
+<div class="card border">
     <h2>Name: <%= goat.name %></h2>
     <p>Price: <%= goat.price %></p>
     <p>Color: <%= goat.color %></p>
     <p>Personality: <%= goat.personality %></p>
     <p>Weight: <%= goat.weight %></p>
     <p>Age: <%= goat.age %></p>
+    </div>
 <% end %>
   </div>
 
 <div class="new_goat">
-<h1>Add New Goat</h1>
+<h3>Add New Goat</h3>
+<div class="goat_form">
 <%= simple_form_for @goat do |f| %>
   <%= f.input :name %>
   <%= f.input :color %>
@@ -20,3 +23,4 @@
   <%= f.input :price %>
   <%= f.submit "Submit Goat", class: "btn btn-primary" %>
 <% end %></div>
+</div>
