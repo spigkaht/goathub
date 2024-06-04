@@ -13,7 +13,7 @@ class OffersController < ApplicationController
     @offer.save
     redirect_to goat_path(@goat)
   end
-
+  
   # PATCH /offers/:id/edit	offers#update
 
   private
