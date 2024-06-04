@@ -38,6 +38,11 @@ class GoatsController < ApplicationController
   end
 
   # DELETE /goats/:id goats#destroy
+  def destroy
+    @goat = Goat.find(params[:id])
+    @goat.destroy
+    redirect_to goats_path(@goats)
+  end
 
   private
 
