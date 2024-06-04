@@ -44,15 +44,6 @@ class GoatsController < ApplicationController
     redirect_to goats_path(@goats)
   end
 
-  # As a user, I can navigate on the website from the navbar (with functional links, e.g. “signin/signout”, “My bookings”, “Publish an offer”, etc.)
-  # As a user, I can view a flat’s page
-  # As a user, I can book a flat
-  # As a user, I can add pictures for my flat
-  # As a user, I can add reviews for a flat I’ve stayed in
-  # As a user, I can locate flats on a map
-  # As a user, I can log in with Facebook
-  # As a user, I can receive an email when someone books my flat
-
   private
 
   def set_goat

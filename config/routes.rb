@@ -6,8 +6,10 @@ Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
 
   # Defines the root path route ("/")
-  devise_for :users
   root to: "pages#home"
-  resources :goats
+  devise_for :users
+  resources :goats do
+    resources :offers, only: [:new, :create]
+  end
   get '/mygoats', to: 'pages#goats', as: 'my_goats'
 end
