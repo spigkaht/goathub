@@ -1,6 +1,7 @@
-  <div class="container">
 <% @goats.each do |goat| %>
-<div class="card border">
+  <div class="card-trip">
+<%= cl_image_tag goat.photo.key, height: 300, width: 400, crop: :fill %>
+<div class="card-trip-infos">
     <h2>Name: <%= goat.name %></h2>
     <p>Price: <%= goat.price %></p>
     <p>Color: <%= goat.color %></p>
@@ -9,7 +10,7 @@
     <p>Age: <%= goat.age %></p>
     <%= link_to "Show me the Goat", goat_path(goat) %>
     </div>
-<% end %>
   </div>
+<% end %>
 
 <%= render "form", goat: @goat %>
