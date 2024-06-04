@@ -1,15 +1,15 @@
-
-<%# <img src="Boris-the-goat.jpg" alt="goat"> %>
 <div class="container-show">
-  <%# <%= cl_image_tag @goat.photo.key, height: 300, width: 400, crop: :fill  %>
-<div class="info-card d-flex flex-column">
-  <h1><%= @goat.name %></h1>
-  <li><%= @goat.personality %></li>
-  <li><%= @goat.age %> Months</li>
-  <li><%= @goat.weight %> Kg's</li>
-<div class="button">
-  <p class="btn btn-primary">Rent now!</p>
-  <p>$<%= @goat.price %></p>
-</div>
-</div>
+  <%= cl_image_tag @goat.photo.key, height: 300, width: 400, crop: :fill  %>
+  <div class="info-card d-flex flex-column">
+    <h1><%= @goat.name %></h1>
+    <ul>
+      <li><%= @goat.personality %></li>
+      <li><%= @goat.age %> Months</li>
+      <li><%= @goat.weight %> Kg's</li>
+    </ul>
+    <div class="button">
+      <%= link_to "Rent Now!", new_goat_offer_path %>
+      <p>$<%= @goat.price %></p>
+    </div>
+  </div>
 </div>
