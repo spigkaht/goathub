@@ -30,6 +30,10 @@ class GoatsController < ApplicationController
   # PATCH /goats/:id goats#update
 
   # DELETE /goats/:id goats#destroy
+  def destroy
+    @goat.destroy
+    redirect_to goat_path(@goat)
+  end
 
   # As a user, I can navigate on the website from the navbar (with functional links, e.g. “signin/signout”, “My bookings”, “Publish an offer”, etc.)
   # As a user, I can view a flat’s page
