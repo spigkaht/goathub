@@ -1,0 +1,11 @@
+<div class="class="d-flex flex-column w-100">
+  <% if !current_user.goats.empty? %>
+    <%= render "owned", goats: @goats_owned %>
+  <% elsif !current_user.offers.empty? %>
+    <%= render "rented", offers: @offers %>
+  <% elsif current_user.offers.empty? && current_user.goats.empty? %>
+    <div class="container">
+      <%= render "empty" %>
+    </div>
+  <% end %>
+</div>

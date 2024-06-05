@@ -1,5 +1,10 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
-<p>To be completed<p>
-<%= link_to "Go to Goats", goats_path %>
-<%= link_to "Go to My Goats", my_goats_path %>
+<div class="container text-center">
+  <h1>GOATHUB</h1>
+  <p>Interesting title and content here</p>
+  <p>To be completed<p>
+  <div class="d-flex flex-column">
+    <%= link_to "View Goats", goats_path %>
+    <%= link_to "Dashboard", my_goats_path %>
+    <%= link_to "Dashboard / JS Testing", my_goats2_path %>
+  </div>
+</div>
