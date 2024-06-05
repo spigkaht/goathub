@@ -33,10 +33,23 @@
   align-items: flex-end;
   position: relative;
 }
+// ^------- Goat-Cards-------^
+
+.offer-card {
+  background: white;
+  height: auto;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
 
 .card-offer {
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border: 1px solid gray;
+  margin: 4px;
+  border-radius: 5px;
+  padding: 5px;
 }
 
 .goat-container {
