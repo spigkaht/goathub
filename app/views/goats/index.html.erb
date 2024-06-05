@@ -1,17 +1,28 @@
-<% @goats.each do |goat| %>
-  <div class="card-trip">
-<%= cl_image_tag goat.photo.key, height: 300, width: 400, crop: :fill %>
-<div class="card-trip-infos">
-    <h2>Name: <%= goat.name %></h2>
-    <p>Price: <%= goat.price %></p>
-    <p>Color: <%= goat.color %></p>
-    <p>Personality: <%= goat.personality %></p>
-    <p>Weight: <%= goat.weight %></p>
-    <p>Age: <%= goat.age %></p>
-    <%= link_to "Show me the Goat", goat_path(goat) %>
+<div data-controller="toggle" class="d-flex flex-column w-100">
+  <div class="add-new-button align-self-end">
+    <button data-action="click->toggle#fire" data-action="click->blur#fire" class="btn btn-outline-primary">Add a Goat</button>
+  </div>
+
+  <div class="d-flex">
+    <div data-toggle-target="blurrableElement" class="container-index">
+      <% @goats.each do |goat| %>
+        <div class="card-trip">
+          <%= cl_image_tag goat.photo.key, height: 300, width: 400, crop: :fill %>
+          <div class="card-trip-infos">
+            <h2>Name: <%= goat.name %></h2>
+            <p>Price: <%= goat.price %></p>
+            <p>Color: <%= goat.color %></p>
+            <p>Personality: <%= goat.personality %></p>
+            <p>Weight: <%= goat.weight %></p>
+            <p>Age: <%= goat.age %></p>
+            <%= link_to "Show me the Goat", goat_path(goat) %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+
+    <div data-toggle-target="togglableElement" class="d-none">
+      <%= render "form", goat: @goat %>
     </div>
   </div>
-<% end %>
-
-<%= render "form", goat: @goat %>
- 
+</div>

@@ -5,6 +5,7 @@
 
  .container-show {
   display: flex;
+  flex-direction: column;
   justify-content: flex-start;
   // align-items: end;
   img {
@@ -24,5 +25,3 @@
     margin: 0;
   }
  }
-
- 
