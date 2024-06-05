@@ -16,7 +16,8 @@
  }
 
  .info-card {
-  margin-left: 5px;
+  margin-left: 1rem;
+  padding: 0.2rem 1rem;
  }
 
  .button {
@@ -27,9 +28,14 @@
   }
  }
 
+.review {
+  margin-left: auto;
+  padding: 0.2rem 1rem;
+}
+
  .review p {
   width: min-content;
   background: white;
   box-shadow: 0 0 15px black;
-  
+
  }

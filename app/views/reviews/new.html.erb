@@ -1,4 +1,7 @@
-<%= simple_form_for [@goat, @review ] do |f| %>
-  <%= f.input :content %>
- <%= f.submit "Submit Review", class: "btn btn-primary" %>
-<% end %>
+<div class="container w-25">
+  <h2>Leave a review for <%= @goat.name %>!</h2>
+  <%= simple_form_for [@goat, @review ] do |f| %>
+    <%= f.input :content, as: :text %>
+  <%= f.submit "Submit Review", class: "btn btn-primary" %>
+  <% end %>
+</div>

@@ -1,8 +1,10 @@
-  <h2>TEST TEST</h2>
-  <% goats.each do |goat| %>
-    <div class="card-trip">
+<h2>My Owned Goats</h2>
+<div class="goat-container">
+  <div class="goat-card">
+  <% @goats_owned.each do |goat| %>
+    <div class="card-goat">
       <%= cl_image_tag goat.photo.key, height: 300, width: 400, crop: :fill %>
-      <div class="card-trip-infos">
+      <div class="card-goat-infos">
         <h2>Name: <%= goat.name %></h2>
         <p>Price: <%= goat.price %></p>
         <p>Color: <%= goat.color %></p>
@@ -10,8 +12,8 @@
         <p>Weight: <%= goat.weight %></p>
         <p>Age: <%= goat.age %></p>
         <%= link_to "Show me the Goat", goat_path(goat) %>
-        <p class="btn btn-primary">Accept Offer</p>
-        <p class="btn btn-danger">Decline Offer</p>
       </div>
     </div>
-  <% end %>
+    <% end %>
+  </div>
+</div>

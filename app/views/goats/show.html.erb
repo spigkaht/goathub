@@ -1,7 +1,7 @@
 <div class="container container-show ml-4 my-4">
-  <div class="d-flex">
-    <%= cl_image_tag @goat.photo.key, height: 300, width: 400, crop: :fill  %>
-    <div class="info-card d-flex flex-column">
+  <div class="d-flex justify-content-start">
+    <%= cl_image_tag @goat.photo.key, height: 300, width: 400, crop: :fill %>
+    <div class="info-card d-flex flex-column border">
       <h1><%= @goat.name %></h1>
       <ul>
         <li><%= @goat.personality %></li>
@@ -15,18 +15,17 @@
         <p>$<%= @goat.price %></p>
       </div>
     </div>
+    <div class="review border w-25">
+      <h1>Reviews</h1>
+      <% @goat.reviews.each do |review| %>
+        <p><%= review.content %></p>
+      <% end %>
+    </div>
   </div>
-</div>
-<div>
-  <%= link_to "Back to all Goats", goats_path, class: "btn btn-primary mt-3" %>
-  <%= link_to "Edit Goat", edit_goat_path(@goat), class: "btn btn-primary mt-3" %>
-  <%= link_to "Delete Goat", goat_path(@goat), class: "btn btn-danger mt-3", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
-  <%= link_to "Leave a Review", new_goat_review_path(@goat), class: "btn btn-primary" %>
-</div>
-
-<div class="review">
-<h1>Reviews</h1>
-<% @goat.reviews.each do |review|%>
-<p><%= review.content %></p>
-<% end %>
+  <div>
+    <%= link_to "Back to all Goats", goats_path, class: "btn btn-primary mt-3" %>
+    <%= link_to "Edit Goat", edit_goat_path(@goat), class: "btn btn-primary mt-3" %>
+    <%= link_to "Leave a Review", new_goat_review_path(@goat), class: "btn btn-primary mt-3" %>
+    <%= link_to "Delete Goat", goat_path(@goat), class: "btn btn-danger mt-3", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+  </div>
 </div>

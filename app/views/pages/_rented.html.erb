@@ -1,5 +1,6 @@
-<h2>Rented Goats</h2>
-<% offers.each do |offer| %>
+<h2>My Goat Rentals</h2>
+<div class="d-flex flex-column w-100 mt-4">
+  <% offers.each do |offer| %>
     <div class="card-trip">
       <%= cl_image_tag offer.goat.photo.key, height: 300, width: 400, crop: :fill %>
       <div class="card-trip-infos">
@@ -15,3 +16,4 @@
       </div>
     </div>
   <% end %>
+</div>
