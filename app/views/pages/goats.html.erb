@@ -18,10 +18,14 @@
   </div>
 
   <div class="offer-card">
+  <h2>Offers</h2>
       <% @offers.each do |offer| %>
       <div class="card-offer">
         <p>Goat name:<%= offer.goat.name %></p>
-        <p>Offer:<%= offer.price %></p>
+        <p>Offer: $<%= offer.price %></p>
+        <p><%= offer.user.email %></p>
+        <p class="btn btn-primary mx-1">Accept</p>
+        <p class="btn btn-danger">Decline</p>
       </div>
       <% end %>
   </div>
