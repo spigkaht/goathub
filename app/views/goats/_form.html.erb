@@ -1,6 +1,6 @@
 <div class="new_goat">
 <h1>Add New Goat</h1>
-<%= simple_form_for goat do |f| %>
+<%= simple_form_for goat, html: { class: "goat-form" } do |f| %>
   <%= f.input :name %>
   <%= f.input :color %>
   <%= f.input :personality %>

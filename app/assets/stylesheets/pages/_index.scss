@@ -1,28 +1,27 @@
 // Import page-specific CSS files here.
 @import "home";
 @import "show";
+@import "goats";
 
+.container-index {
+  display: flex;
+  flex-wrap: wrap;
+  width: 90vw;
+  margin: 0 auto;
+  justify-content: space-between;
+}
 
-// .border {
-//   display: inline-flex;
-//   justify-content: space-evenly;
-//   background: white;
-//   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-//   border-radius: 8px;
-//   margin: 10px;
-//   padding: 8px;
-// }
-
-// .new_goat {
-//   margin-top: 50px;
-//   position: fixed;
-//   bottom: 0;
-//   display: inline-flex;
-// }
+.index-blur {
+  -webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
+  filter: blur(5px);
+}
 
 .card-trip {
   display: inline-grid;
-  width: 35%;
+  width: 30%;
   overflow: hidden;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
@@ -56,6 +55,14 @@
 }
 
 .new_goat {
-  margin-right: 15rem;
-  padding: auto;
+  margin: 0.5rem 0.5rem 0 1rem;
+}
+
+.goat-form {
+  border: 1px solid grey;
+  padding: 0.5rem;
+}
+
+.add-new-button {
+  margin: 0 4rem 2rem 0;
 }

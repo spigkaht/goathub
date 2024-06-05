@@ -1,5 +1,6 @@
 class OffersController < ApplicationController
   before_action :set_goat, only: [:new, :create]
+
   # GET /goats/:id/offers/new offers#new
   def new
     @offer = Offer.new
@@ -13,7 +14,7 @@ class OffersController < ApplicationController
     @offer.save
     redirect_to goat_path(@goat)
   end
-  
+
   # PATCH /offers/:id/edit	offers#update
 
   private
