@@ -1,41 +1,47 @@
 <div class="container-fluid mt-3">
-<ul class="nav nav-tabs" id="myTab" role="tablist">
-  <li class="nav-item" role="presentation">
-    <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Home</button>
-  </li>
-  <li class="nav-item" role="presentation">
-    <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Profile</button>
-  </li>
-  <li class="nav-item" role="presentation">
-    <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">Contact</button>
-  </li>
-</ul>
-<div class="tab-content" id="myTabContent">
-  <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">...</div>
-  <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">...</div>
-  <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>
-</div>
-
-  <% if !current_user.goats.empty? %>
-    <%= render "owned", goats: @goats_owned %>
-  <% elsif !current_user.offers.empty? %>
-    <%= render "rented", offers: @offers %>
-  <% elsif current_user.offers.empty? && current_user.goats.empty? %>
-    <div class="container">
-      <%= render "empty" %>
+  <ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item" role="presentation">
+      <button class="nav-link active" id="owned-tab" data-bs-toggle="tab" data-bs-target="#owned" type="button" role="tab" aria-controls="owned" aria-selected="true">owned</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="rented-tab" data-bs-toggle="tab" data-bs-target="#rented" type="button" role="tab" aria-controls="rented" aria-selected="false">rented</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="offers-tab" data-bs-toggle="tab" data-bs-target="#offers" type="button" role="tab" aria-controls="offers" aria-selected="false">offers</button>
+    </li>
+  </ul>
+  <div class="tab-content my-3" id="myTabContent">
+    <div class="tab-pane fade show active" id="owned" role="tabpanel" aria-labelledby="owned-tab">
+      <% if !current_user.goats.empty? %>
+        <%= render "owned", goats: @goats_owned %>
+      <% else %>
+        <div class="container">
+          <%= render "empty" %>
+        </div>
+      <% end %>
     </div>
-  <% end %>
-
-  <div class="offer-card">
-    <h2>Offers</h2>
-    <% @offers.each do |offer| %>
-      <div class="card-offer">
-        <p>Goat name:<%= offer.goat.name %></p>
-        <p>Offer: $<%= offer.price %></p>
-        <p><%= offer.user.email %></p>
-        <p class="btn btn-primary mx-1">Accept</p>
-        <p class="btn btn-danger">Decline</p>
+    <div class="tab-pane fade" id="rented" role="tabpanel" aria-labelledby="rented-tab">
+      <% if !current_user.offers.empty? %>
+        <%= render "rented", offers: @offers %>
+      <% else %>
+        <div class="container">
+          <%= render "empty" %>
+        </div>
+      <% end %>
+    </div>
+    <div class="tab-pane fade" id="offers" role="tabpanel" aria-labelledby="offers-tab">
+      <div class="offer-card">
+        <h2>Offers</h2>
+        <% @offers.each do |offer| %>
+          <div class="card-offer">
+            <p>Goat name:<%= offer.goat.name %></p>
+            <p>Offer: $<%= offer.price %></p>
+            <p><%= offer.user.email %></p>
+            <p class="btn btn-primary mx-1">Accept</p>
+            <p class="btn btn-danger">Decline</p>
+          </div>
+        <% end %>
       </div>
-    <% end %>
+    </div>
   </div>
 </div>
