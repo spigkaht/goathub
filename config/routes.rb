@@ -12,4 +12,5 @@ Rails.application.routes.draw do
     resources :offers, only: [:new, :create]
   end
   get '/mygoats', to: 'pages#goats', as: 'my_goats'
+  get '/mygoats2', to: 'pages#goats2', as: 'my_goats2'
 end
