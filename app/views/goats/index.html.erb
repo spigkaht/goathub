@@ -9,13 +9,13 @@
         <div class="card-trip">
           <%= cl_image_tag goat.photo.key, height: 300, width: 400, crop: :fill %>
           <div class="card-trip-infos">
-            <h2>Name: <%= goat.name %></h2>
-            <p>Price: <%= goat.price %></p>
-            <p>Color: <%= goat.color %></p>
+            <h2><%= link_to goat.name, goat_path(goat) %></h2>
+            <p>Price: $<%= goat.price %></p>
+            <p>Color: <%= goat.color.capitalize %></p>
             <p>Personality: <%= goat.personality %></p>
-            <p>Weight: <%= goat.weight %></p>
-            <p>Age: <%= goat.age %></p>
-            <%= link_to "Show me the Goat", goat_path(goat) %>
+            <p>Weight: <%= goat.weight %>kg</p>
+            <p>Age: <%= goat.age %> years</p>
+            <p>Owner: <%= goat.user.email %></p>
           </div>
         </div>
       <% end %>
