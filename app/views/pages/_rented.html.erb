@@ -1,2 +1,17 @@
 <h2>Rented Goats</h2>
-<%= @goats %>
+<% offers.each do |offer| %>
+    <div class="card-trip">
+      <%= cl_image_tag offer.goat.photo.key, height: 300, width: 400, crop: :fill %>
+      <div class="card-trip-infos">
+        <h2>Name: <%= offer.goat.name %></h2>
+        <p>Price: <%= offer.goat.price %></p>
+        <p>Color: <%= offer.goat.color %></p>
+        <p>Personality: <%= offer.goat.personality %></p>
+        <p>Weight: <%= offer.goat.weight %></p>
+        <p>Age: <%= offer.goat.age %></p>
+        <%= link_to "Show me the Goat", goat_path(offer.goat) %>
+        <p class="btn btn-primary">Accept Offer</p>
+        <p class="btn btn-danger">Decline Offer</p>
+      </div>
+    </div>
+  <% end %>
