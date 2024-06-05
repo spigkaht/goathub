@@ -8,7 +8,7 @@
         <li><%= @goat.age %> years</li>
         <li><%= @goat.weight %>kg</li>
         <li>Owned by <%= @goat.user.email %></li>
-        <li>Rented by <%= @goat.offers.email %></li>
+        <%# <li>Rented by <%= @goat.offers.email %></li> %>
       </ul>
       <div class="button">
         <%= link_to "Rent Now!", new_goat_offer_path(@goat), class: "btn btn-primary" %>
