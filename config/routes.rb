@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   devise_for :users
   resources :goats do
     resources :offers, only: [:new, :create]
+    resources :reviews, only: [:new, :create]
   end
   get '/mygoats', to: 'pages#goats', as: 'my_goats'
   get '/mygoats2', to: 'pages#goats2', as: 'my_goats2'
