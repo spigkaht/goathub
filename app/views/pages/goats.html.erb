@@ -1,20 +1,29 @@
-<div class="class="d-flex flex-column w-100">
-  <h2>Owned Goats</h2>
+<h2>Owned Goats</h2>
+<div class="goat-container">
+  <div class="goat-card">
   <% @goats_owned.each do |goat| %>
-    <div class="card-trip">
-  <%= cl_image_tag goat.photo.key, height: 300, width: 400, crop: :fill %>
-  <div class="card-trip-infos">
-      <h2>Name: <%= goat.name %></h2>
-      <p>Price: <%= goat.price %></p>
-      <p>Color: <%= goat.color %></p>
-      <p>Personality: <%= goat.personality %></p>
-      <p>Weight: <%= goat.weight %></p>
-      <p>Age: <%= goat.age %></p>
-      <%= link_to "Show me the Goat", goat_path(goat) %>
-      <p class="btn btn-primary">Accept Offer</p>
-      <p class="btn btn-danger">Decline Offer</p>
+    <div class="card-goat">
+      <%= cl_image_tag goat.photo.key, height: 300, width: 400, crop: :fill %>
+      <div class="card-goat-infos">
+        <h2>Name: <%= goat.name %></h2>
+        <p>Price: <%= goat.price %></p>
+        <p>Color: <%= goat.color %></p>
+        <p>Personality: <%= goat.personality %></p>
+        <p>Weight: <%= goat.weight %></p>
+        <p>Age: <%= goat.age %></p>
+        <%= link_to "Show me the Goat", goat_path(goat) %>
       </div>
     </div>
-  <% end %>
-  <h2>Rented Goats</h2>
+    <% end %>
+  </div>
+
+  <div class="offer-card">
+      <% @offers.each do |offer| %>
+      <div class="card-offer">
+        <p>Goat name:<%= offer.goat.name %></p>
+        <p>Offer:<%= offer.price %></p>
+      </div>
+      <% end %>
+  </div>
 </div>
+<h2>Rented Goats</h2>
