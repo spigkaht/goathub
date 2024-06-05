@@ -1,6 +1,5 @@
 <h2>My Owned Goats</h2>
 <div class="goat-container">
-  <div class="goat-card">
     <% @goats_owned.each do |goat| %>
       <div class="card-goat">
         <%= cl_image_tag goat.photo.key, height: 300, width: 400, crop: :fill %>
@@ -15,5 +14,4 @@
         </div>
       </div>
     <% end %>
-  </div>
 </div>
