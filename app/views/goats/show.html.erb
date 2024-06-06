@@ -5,14 +5,26 @@
       <h1><%= @goat.name %></h1>
       <ul>
         <li><%= @goat.personality %></li>
+        <li><%= @goat.color.capitalize %></li>
         <li><%= @goat.age %> years</li>
         <li><%= @goat.weight %>kg</li>
-        <li>Owned by <%= @goat.user.email %></li>
-        <%# <li>Rented by <%= @goat.offers.email</li> <----!!!!---- rented by??? %>
       </ul>
-      <div class="button">
+      <div class="d-flex p-2 justify-content-around owner-info">
+        <div class="border list-nostyle flex-grow-1">
+          <p class="font-weight-bold">Owned by<p>
+          <p class=list-nostyle-text><%= @goat.user.email %></p>
+          <%# <li>Rented by <%= @goat.offers.email</li> <----!!!!---- rented by??? %>
+        </div>
+        <div class="border list-nostyle flex-grow-1">
+          <p class="font-weight-bold">Rented by<p>
+          <p class=list-nostyle-text><%= @goat.user.email %></p>
+          <%# <li>Rented by <%= @goat.offers.email</li> <----!!!!---- rented by??? %>
+        </div>
+      </div>
+      <div class="button d-flex border align-items-center justify-content-between">
         <%= link_to "Rent Now!", new_goat_offer_path(@goat), class: "btn btn-primary" %>
-        <p>$<%= @goat.price %></p>
+        <p>$<%= @goat.price %> / day</p>
+        <p class="btn btn-primary disabled">Available</p>
       </div>
     </div>
     <div class="review border w-25">

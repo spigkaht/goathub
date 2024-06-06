@@ -1,41 +1,57 @@
-
- .goat {
+.goat {
   display: flex;
   height: 400px;
- }
+}
 
- .container-show {
+.container-show {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   // align-items: end;
-  img {
-    border-radius: 5px;
-    box-shadow: 0.5px 0.5px 0.5px black;
-  }
- }
+}
 
- .info-card {
+img {
+  border-radius: 5px;
+  box-shadow: 0.5px 0.5px 0.5px black;
+}
+
+.info-card {
   margin-left: 1rem;
   padding: 0.2rem 1rem;
- }
+}
 
- .button {
+.button {
   margin-top: auto;
+  margin-bottom: 5px;
+}
 
-  p {
-    margin: 0;
-  }
- }
+p {
+  margin: 0;
+}
 
 .review {
   margin-left: auto;
   padding: 0.2rem 1rem;
 }
 
- .review p {
+.review p {
   width: min-content;
   background: white;
   box-shadow: 0 0 15px black;
+}
 
- }
+.owner-info {
+  gap: 10px;
+}
+
+.list-nostyle {
+  text-align: center;
+}
+
+.list-nostyle-text {
+  font-size: 10px;
+}
+
+.list-nostyle li {
+  list-style-type: none;
+}
