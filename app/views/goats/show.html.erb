@@ -1,6 +1,10 @@
 <div class="container container-show ml-4 my-4">
   <div class="d-flex justify-content-start">
-    <%= cl_image_tag @goat.photo.key, height: 300, width: 400, crop: :fill %>
+    <% if @goat.photo.attached? %>
+      <%= cl_image_tag @goat.photo.key, height: 400, width: 400, crop: :fill %>
+    <% else %>
+      <%= image_tag "nogoat.jpg", alt: "No image available", height: 400, width: 400, crop: :fill %>
+    <% end %>
     <div class="info-card d-flex flex-column border">
       <h1><%= @goat.name %></h1>
       <ul>
@@ -13,18 +17,20 @@
         <div class="border list-nostyle flex-grow-1">
           <p class="font-weight-bold">Owned by<p>
           <p class=list-nostyle-text><%= @goat.user.email %></p>
-          <%# <li>Rented by <%= @goat.offers.email</li> <----!!!!---- rented by??? %>
         </div>
         <div class="border list-nostyle flex-grow-1">
           <p class="font-weight-bold">Rented by<p>
-          <p class=list-nostyle-text><%= @goat.user.email %></p>
-          <%# <li>Rented by <%= @goat.offers.email</li> <----!!!!---- rented by??? %>
+          <p class=list-nostyle-text><%= @offers.first.user.email if @offers.any? %></p>
         </div>
       </div>
       <div class="button d-flex border align-items-center justify-content-between">
         <%= link_to "Rent Now!", new_goat_offer_path(@goat), class: "btn btn-primary" %>
-        <p>$<%= @goat.price %> / day</p>
-        <p class="btn btn-primary disabled">Available</p>
+        <p class="px-3">$<%= @goat.price %> / day</p>
+        <% if @offers.any? %>
+          <p class="btn btn-danger disabled">On Rent</p>
+        <% else %>
+          <p class="btn btn-primary disabled">Available</p>
+        <% end %>
       </div>
     </div>
     <div class="review border w-25">
