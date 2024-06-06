@@ -11,8 +11,12 @@ class OffersController < ApplicationController
     @offer = Offer.new(offer_params)
     @offer.goat = @goat
     @offer.user = current_user
-    @offer.save
-    redirect_to goat_path(@goat)
+    @offer.price = @goat.price
+    if @offer.save
+      redirect_to goat_path(@goat)
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   # PATCH /offers/:id/edit	offers#update
@@ -24,6 +28,6 @@ class OffersController < ApplicationController
   end
 
   def offer_params
-    params.require(:offer).permit(:price)
+    params.require(:offer).permit(:price, :comment, :start_date, :end_date)
   end
 end

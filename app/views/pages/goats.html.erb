@@ -34,13 +34,16 @@
         <h2>Offers</h2>
         <% @offers.each do |offer| %>
           <div class="card-offer">
-            <p>Goat name:<%= offer.goat.name %></p>
-            <p>Offer: $<%= offer.price %></p>
-            <p><%= offer.user.email %></p>
-            <p>Start Date: </p><%= offer.start_date %>
-            <p>End Date: </p><%= offer.end_date %>
-            <p class="btn btn-primary">Accept</p>
-            <p class="btn btn-danger">Decline</p>
+            <p><strong>Goat:</strong> <%= offer.goat.name %></p>
+            <p><strong>Booker:</strong> <%= offer.user.first_name %></p>
+            <p><strong>Contact:</strong> <%= offer.user.email %></p>
+            <p><strong>Price:</strong> $<%= offer.price %></p>
+            <p><strong>Start Date:</strong> <%= offer.start_date %></p>
+            <p><strong>End Date:</strong> <%= offer.end_date %></p>
+            <div class="offer-buttons">
+              <p class="btn btn-primary">Accept</p>
+              <p class="btn btn-danger">Decline</p>
+            </div>
           </div>
         <% end %>
       </div>
