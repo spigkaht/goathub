@@ -10,6 +10,7 @@
 require 'faker'
 
 puts "Clearing out your junk.."
+Review.destroy_all
 Offer.destroy_all
 Goat.destroy_all
 User.destroy_all
@@ -24,6 +25,27 @@ emails = [
   "george@lewagon.org",
   "ben@lewagon.org"
 ]
+
+first_names = [
+  "Ben",
+  "Sam",
+  "Prescot",
+  "Benji",
+  "Spig",
+  "George",
+  "Ben"
+]
+
+last_names = [
+  "Jackson",
+  "Singh",
+  "Palmer",
+  "Bob",
+  "Kaht",
+  "Kettle",
+  "Schembri"
+]
+
 personalities = [
   "Accessible",
   "Captivating",
@@ -63,11 +85,12 @@ personalities = [
   "Vivacious",
   "Well-rounded"
 ]
+
 password = "goathub"
 counter = 1
 
-emails.each do |email|
-  user = User.create!(email: email, password: password)
+7.times do |i|
+  user = User.create!(first_name: first_names[i], last_name: last_names[i], email: emails[i], password: password)
   puts "##{counter} done"
   counter += 1
 
