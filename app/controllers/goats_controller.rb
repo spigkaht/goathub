@@ -10,6 +10,7 @@ class GoatsController < ApplicationController
   # GET /goats/:id goats#show goat_path
   def show
     set_goat
+    @offers = @goat.offers
   end
 
   # GET /goats/new goats#new new_goat_path

@@ -2,7 +2,11 @@
 <div class="goat-container">
   <% offers.each do |offer| %>
     <div class="card-goat">
-      <%= cl_image_tag offer.goat.photo.key, height: 300, width: 400, crop: :fill %>
+      <% if offer.goat.photo.attached? %>
+        <%= cl_image_tag offer.goat.photo.key, height: 400, width: 400, crop: :fill %>
+      <% else %>
+        <%= image_tag "nogoat.jpg", alt: "No image available", height: 400, width: 400, crop: :fill %>
+      <% end %>
       <div class="card-goat-infos">
         <h2>Name: <%= offer.goat.name %></h2>
         <p>Price: <%= offer.goat.price %></p>

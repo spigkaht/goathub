@@ -2,12 +2,15 @@
   <div class="add-new-button align-self-end">
     <button data-action="click->toggle#fire" data-action="click->blur#fire" class="btn btn-outline-primary">Add a Goat</button>
   </div>
-
   <div class="d-flex">
     <div data-toggle-target="blurrableElement" class="container-index">
       <% @goats.each do |goat| %>
         <div class="card-trip">
-          <%= cl_image_tag goat.photo.key, height: 300, width: 400, crop: :fill %>
+          <% if goat.photo.attached? %>
+            <%= cl_image_tag goat.photo.key, height: 400, width: 400, crop: :fill %>
+          <% else %>
+            <%= image_tag "nogoat.jpg", alt: "No image available", height: 400, width: 400, crop: :fill %>
+          <% end %>
           <div class="card-trip-infos">
             <h2><%= link_to goat.name, goat_path(goat) %></h2>
             <p>Price: $<%= goat.price %></p>
@@ -20,7 +23,6 @@
         </div>
       <% end %>
     </div>
-
     <div data-toggle-target="togglableElement" class="d-none">
       <%= render "form", goat: @goat %>
     </div>

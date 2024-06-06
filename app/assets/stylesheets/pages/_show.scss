@@ -1,42 +1,71 @@
-
- .goat {
+.goat {
   display: flex;
   height: 400px;
- }
+}
 
- .container-show {
+.container-show {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   // align-items: end;
-  img {
-    border-radius: 5px;
-    box-shadow: 0.5px 0.5px 0.5px black;
-  }
- }
+}
 
- .info-card {
+img {
+  border-radius: 5px;
+  box-shadow: 0.5px 0.5px 0.5px black;
+}
+
+.info-card {
   margin-left: 1rem;
   padding: 0.2rem 1rem;
   background-color: white;
  }
 
- .button {
+
+.button {
   margin-top: auto;
+  margin-bottom: 5px;
+}
 
-  p {
-    margin: 0;
-  }
- }
-
+p {
+  margin: 0;
+}
+// v------------Reviews-----------v
 .review {
-  margin-left: auto;
+  width: 46.3rem;
+  margin-top: 15px;
   padding: 0.2rem 1rem;
 }
 
- .review p {
-  width: min-content;
+.review p {
+  width: fit-content;
+  // background: white
+  // box-shadow: 0 0 15px black;
+}
+.review-card {
   background: white;
-  box-shadow: 0 0 15px black;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  padding: 5px;
+  width: 14rem;
+}
+#user-email {
+  color: grey;
+}
+// ^------------Reviews-----------^
+.owner-info {
+  gap: 10px;
+}
 
- }
+.list-nostyle {
+  text-align: center;
+}
+
+.list-nostyle-text {
+  font-size: 10px;
+}
+
+.list-nostyle li {
+  list-style-type: none;
+}

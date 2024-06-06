@@ -1,25 +1,39 @@
 <div class="container container-show ml-4 my-4">
   <div class="d-flex justify-content-start">
-    <%= cl_image_tag @goat.photo.key, height: 300, width: 400, crop: :fill %>
+    <% if @goat.photo.attached? %>
+      <%= cl_image_tag @goat.photo.key, height: 400, width: 400, crop: :fill %>
+    <% else %>
+      <%= image_tag "nogoat.jpg", alt: "No image available", height: 400, width: 400, crop: :fill %>
+    <% end %>
     <div class="info-card d-flex flex-column border">
       <h1><%= @goat.name %></h1>
       <ul>
         <li><%= @goat.personality %></li>
+        <li><%= @goat.color.capitalize %></li>
         <li><%= @goat.age %> years</li>
         <li><%= @goat.weight %>kg</li>
-        <li>Owned by <%= @goat.user.email %></li>
-        <%# <li>Rented by <%= @goat.offers.email</li> <----!!!!---- rented by??? %>
       </ul>
-      <div class="button">
-        <%= link_to "Rent Now!", new_goat_offer_path(@goat), class: "btn btn-primary" %>
-        <p>$<%= @goat.price %></p>
+      <div class="d-flex p-2 justify-content-around owner-info">
+        <div class="border list-nostyle flex-grow-1">
+          <p class="font-weight-bold">Owned by<p>
+          <p class=list-nostyle-text><%= @goat.user.first_name %> <%= @goat.user.last_name %></p>
+          <p class=list-nostyle-text><%= @goat.user.email %></p>
+        </div>
+        <div class="border list-nostyle flex-grow-1">
+          <p class="font-weight-bold">Rented by<p>
+          <p class=list-nostyle-text><%= @offers.first.user.first_name if @offers.any? %> <%= @offers.first.user.last_name if @offers.any? %></p>
+          <p class=list-nostyle-text><%= @offers.first.user.email if @offers.any? %></p>
+        </div>
       </div>
-    </div>
-    <div class="review border w-25">
-      <h1>Reviews</h1>
-      <% @goat.reviews.each do |review| %>
-        <p><%= review.content %></p>
-      <% end %>
+      <div class="button d-flex border align-items-center justify-content-between">
+        <%= link_to "Rent Now!", new_goat_offer_path(@goat), class: "btn btn-primary" %>
+        <p class="px-3">$<%= @goat.price %> / day</p>
+        <% if @offers.any? %>
+          <p class="btn btn-danger disabled">On Rent</p>
+        <% else %>
+          <p class="btn btn-primary disabled">Available</p>
+        <% end %>
+      </div>
     </div>
   </div>
   <div>
@@ -28,4 +42,19 @@
     <%= link_to "Leave a Review", new_goat_review_path(@goat), class: "btn btn-primary mt-3" %>
     <%= link_to "Delete Goat", goat_path(@goat), class: "btn btn-danger mt-3", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
   </div>
+    <div class="review border">
+      <h1>Reviews</h1>
+      <% if @goat.reviews.any? %>
+      <div>
+        <% @goat.reviews.each do |review| %>
+      <div class="review-card">
+          <p><%= review.content %></p>
+          <p id="user-email">- <%= review.user.email %></p>
+        <% end %>
+        </div>
+        <% else  %>
+        <p>No reviews!</p>
+        <% end  %>
+      </div>
+    </div>
 </div>
