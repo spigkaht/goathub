@@ -1,4 +1,4 @@
-<div data-controller="playsound" class="container w-25">
+<div class="container w-25">
   <h2>Leave a review for <%= @goat.name %>!</h2>
   <%= simple_form_for [@goat, @review ] do |f| %>
     <%= f.input :content, as: :text %>

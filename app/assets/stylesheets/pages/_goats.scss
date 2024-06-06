@@ -49,9 +49,13 @@
   border: 1px solid gray;
   margin: 4px;
   border-radius: 5px;
-  padding: 5px;
-  width: 14rem;
+  padding: 10px;
+  width: 20rem;
   display: inline-block;
+}
+
+.offer-buttons .btn {
+  margin: 5px 5px 5px 0;
 }
 
 .goat-container {
