@@ -28,18 +28,30 @@ img {
 p {
   margin: 0;
 }
-
+// v------------Reviews-----------v
 .review {
-  margin-left: auto;
+  width: 46.3rem;
+  margin-top: 15px;
   padding: 0.2rem 1rem;
 }
 
 .review p {
-  width: min-content;
-  background: white;
-  box-shadow: 0 0 15px black;
+  width: fit-content;
+  // background: white
+  // box-shadow: 0 0 15px black;
 }
-
+.review-card {
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  padding: 5px;
+  width: 14rem;
+}
+#user-email {
+  color: grey;
+}
+// ^------------Reviews-----------^
 .owner-info {
   gap: 10px;
 }
