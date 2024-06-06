@@ -42,8 +42,8 @@
             <p><strong>End Date:</strong> <%= offer.end_date %></p>
             <p><%= offer.status %></p>
             <div class="offer-buttons">
-              <p class="btn btn-primary"> <%= link_to "accept", goat_offer_path(offer.goat_id, offer.id, status: offer.confirmed!), data: { turbo_method: :patch} %></p>
-              <p class="btn btn-danger"> <%= link_to "decline", goat_offer_path(offer.goat_id, offer.id, status: offer.rejected!), data: { turbo_method: :patch} %></p> 
+              <p class="btn btn-primary"> <%= link_to "accept", goat_offer_path(offer.goat_id, offer.id, status: "confirmed"), data: { turbo_method: :patch} %></p>
+              <p class="btn btn-danger"> <%= link_to "decline", goat_offer_path(offer.goat_id, offer.id, status: "rejected"), data: { turbo_method: :patch} %></p>
             </div>
           </div>
         <% end %>

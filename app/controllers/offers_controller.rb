@@ -23,6 +23,7 @@ class OffersController < ApplicationController
   def update
     @offer = Offer.find(params[:id])
     @offer.update(status: params[:status])
+    redirect_to my_goats_path
   end
 
   private
