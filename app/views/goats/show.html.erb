@@ -16,10 +16,12 @@
       <div class="d-flex p-2 justify-content-around owner-info">
         <div class="border list-nostyle flex-grow-1">
           <p class="font-weight-bold">Owned by<p>
+          <p class=list-nostyle-text><%= @goat.user.first_name %> <%= @goat.user.last_name %></p>
           <p class=list-nostyle-text><%= @goat.user.email %></p>
         </div>
         <div class="border list-nostyle flex-grow-1">
           <p class="font-weight-bold">Rented by<p>
+          <p class=list-nostyle-text><%= @offers.first.user.first_name if @offers.any? %> <%= @offers.first.user.last_name if @offers.any? %></p>
           <p class=list-nostyle-text><%= @offers.first.user.email if @offers.any? %></p>
         </div>
       </div>

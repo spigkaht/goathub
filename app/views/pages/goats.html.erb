@@ -34,12 +34,17 @@
         <h2>Offers</h2>
         <% @offers.each do |offer| %>
           <div class="card-offer">
-            <p>Goat name:<%= offer.goat.name %></p>
-            <p>Offer: $<%= offer.price %></p>
-            <p><%= offer.user.email %></p>
+            <p><strong>Goat:</strong> <%= offer.goat.name %></p>
+            <p><strong>Booker:</strong> <%= offer.user.first_name %></p>
+            <p><strong>Contact:</strong> <%= offer.user.email %></p>
+            <p><strong>Price:</strong> $<%= offer.price %></p>
+            <p><strong>Start Date:</strong> <%= offer.start_date %></p>
+            <p><strong>End Date:</strong> <%= offer.end_date %></p>
             <p><%= offer.status %></p>
-            <p class="btn btn-primary"> <%= link_to "accept", goat_offer_path(offer.goat_id, offer.id, status: offer.confirmed!), data: { turbo_method: :patch} %></p>
-            <p class="btn btn-danger"> <%= link_to "decline", goat_offer_path(offer.goat_id, offer.id, status: offer.rejected!), data: { turbo_method: :patch} %></p>
+            <div class="offer-buttons">
+              <p class="btn btn-primary"> <%= link_to "accept", goat_offer_path(offer.goat_id, offer.id, status: offer.confirmed!), data: { turbo_method: :patch} %></p>
+              <p class="btn btn-danger"> <%= link_to "decline", goat_offer_path(offer.goat_id, offer.id, status: offer.rejected!), data: { turbo_method: :patch} %></p> 
+            </div>
           </div>
         <% end %>
       </div>
