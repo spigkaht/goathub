@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   root to: "pages#home"
   devise_for :users
   resources :goats do
-    resources :offers, only: [:new, :create]
+    resources :offers, only: [:new, :create, :update]
     resources :reviews, only: [:new, :create]
   end
   get '/mygoats', to: 'pages#goats', as: 'my_goats'

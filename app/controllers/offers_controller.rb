@@ -1,5 +1,5 @@
 class OffersController < ApplicationController
-  before_action :set_goat, only: [:new, :create]
+  before_action :set_goat, only: [:new, :create, :update]
 
   # GET /goats/:id/offers/new offers#new
   def new
@@ -20,6 +20,10 @@ class OffersController < ApplicationController
   end
 
   # PATCH /offers/:id/edit	offers#update
+  def update
+    @offer = Offer.find(params[:id])
+    @offer.update(status: params[:status])
+  end
 
   private
 
@@ -28,6 +32,6 @@ class OffersController < ApplicationController
   end
 
   def offer_params
-    params.require(:offer).permit(:price, :comment, :start_date, :end_date)
+    params.require(:offer).permit(:price, :comment, :start_date, :end_date, :status)
   end
 end
