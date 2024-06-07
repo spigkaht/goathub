@@ -21,14 +21,14 @@
         </div>
         <div class="border list-nostyle flex-grow-1">
           <p class="font-weight-bold">Rented by<p>
-          <p class=list-nostyle-text><%= @offers.first.user.first_name if @offers.any? %> <%= @offers.first.user.last_name if @offers.any? %></p>
-          <p class=list-nostyle-text><%= @offers.first.user.email if @offers.any? %></p>
+          <p class=list-nostyle-text><%= @offers.first.user.first_name if @offers.any? { |offer| offer.status == "confirmed" } %> <%= @offers.first.user.last_name if @offers.any? { |offer| offer.status == "confirmed" } %></p>
+          <p class=list-nostyle-text><%= @offers.first.user.email if @offers.any? { |offer| offer.status == "confirmed" } %></p>
         </div>
       </div>
       <div class="button d-flex border align-items-center justify-content-between">
         <%= link_to "Rent Now!", new_goat_offer_path(@goat), class: "btn btn-primary" %>
         <p class="px-3">$<%= @goat.price %> / day</p>
-        <% if @offers.any? %>
+        <% if @offers.any? { |offer| offer.status == "confirmed" } %>
           <p class="btn btn-danger disabled">On Rent</p>
         <% else %>
           <p class="btn btn-primary disabled">Available</p>
