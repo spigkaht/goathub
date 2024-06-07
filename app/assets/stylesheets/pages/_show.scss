@@ -73,3 +73,22 @@ p {
 .list-nostyle li {
   list-style-type: none;
 }
+
+.buttons button {
+  border: 2px solid #0D6EFD;;
+  margin-top: 10px;
+  border-radius: 30px;
+  padding: 12px;
+  // border-color: lightblue;
+  transition-duration: 0.4s;
+  a {
+    text-decoration: none;
+    color: black;
+  }
+}
+.buttons button:hover {
+  background-color: #0D6EFD;;
+  a {
+    color: white;
+  }
+}
