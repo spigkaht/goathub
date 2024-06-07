@@ -37,24 +37,22 @@
     </div>
   </div>
   <div>
-    <%= link_to "Back to all Goats", goats_path, class: "btn btn-primary mt-3" %>
-    <%= link_to "Edit Goat", edit_goat_path(@goat), class: "btn btn-primary mt-3" %>
-    <%= link_to "Leave a Review", new_goat_review_path(@goat), class: "btn btn-primary mt-3" %>
-    <%= link_to "Delete Goat", goat_path(@goat), class: "btn btn-danger mt-3", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+    <%= link_to "Back to all Goats", goats_path, class: "btn btn-dark mt-3" %>
+    <%= link_to "Edit Goat", edit_goat_path(@goat), class: "btn btn-dark mt-3" %>
+    <%= link_to "Leave a Review", new_goat_review_path(@goat), class: "btn btn-dark mt-3" %>
+    <%= link_to "Delete Goat", goat_path(@goat), class: "btn btn-dark mt-3", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
   </div>
-    <div class="review border">
+    <div class="review border-top">
       <h1>Reviews</h1>
       <% if @goat.reviews.any? %>
-      <div>
         <% @goat.reviews.each do |review| %>
       <div class="review-card">
           <p><%= review.content %></p>
           <p id="user-email">- <%= review.user.email %></p>
+      </div>
         <% end %>
-        </div>
         <% else  %>
         <p>No reviews!</p>
-        <% end  %>
-      </div>
+        <% end%>
     </div>
 </div>
