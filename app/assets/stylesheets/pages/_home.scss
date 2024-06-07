@@ -1,32 +1,49 @@
 // Specific CSS for your home-page
-.banner {
-  // background-size: cover;
-  background-position: center;
-  padding: 100px 0 10px 0;
-  margin-top: 100px;
-  background-image: linear-gradient(rgba(255,255,255,0.9),rgba(0,0,0,0.1)), asset-url('goats.jpg');
+
+body {
+  background-color: #FCA311;
 }
 
 .banner h1 {
-  margin: 0;
+  font-family: "Cactus Classical Serif", serif;
+  font-weight: 400;
+  font-style: normal;
   color: white;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  font-size: 48px;
+  font-size: 200px;
   font-weight: bold;
+  text-align: center;
+  text-decoration: underline;
 }
 
-.banner p {
-  margin: 20px 0;
+ .banner p {
+  width: 100vw;
+  margin-right: 120px 0;
   font-size: 20px;
   color: white;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  text-align: center;
 }
 
-.banner-cont {
-  margin-top: 50px;
+.page_links {
+  display: flex;
+  justify-content: space-between;
+  text-decoration: white;
 }
 
-.banner-cont a {
-  font-size: 20px;
-  color: darkblue;
+.links {
+  color: white;
+  text-decoration: none;
+}
+
+.links:hover {
+  text-decoration: underline;
+
+}
+
+.lower-half {
+  background-image: url("https://wallpapers.com/images/featured/goat-7mo0ftmmd2695izw.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 500px;
 }
