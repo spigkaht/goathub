@@ -14,4 +14,5 @@ Rails.application.routes.draw do
   end
   get '/mygoats', to: 'pages#goats', as: 'my_goats'
   get '/mygoats2', to: 'pages#goats2', as: 'my_goats2'
+  get '/utez', to: 'pages#utez', as: 'utez'
 end

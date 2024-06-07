@@ -13,4 +13,7 @@ class PagesController < ApplicationController
     @goats_owned = current_user.goats
     @offers = current_user.offers
   end
+
+  def utez
+  end
 end
