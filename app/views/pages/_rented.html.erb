@@ -1,21 +1,29 @@
 <h2>My Goat Rentals</h2>
 <div class="goat-container">
   <% offers.each do |offer| %>
-    <div class="card-goat">
-      <% if offer.goat.photo.attached? %>
-        <%= cl_image_tag offer.goat.photo.key, height: 400, width: 400, crop: :fill %>
-      <% else %>
-        <%= image_tag "nogoat.jpg", alt: "No image available", height: 400, width: 400, crop: :fill %>
-      <% end %>
-      <div class="card-goat-infos">
-        <h2>Name: <%= offer.goat.name %></h2>
-        <p>Price: <%= offer.goat.price %></p>
-        <p>Color: <%= offer.goat.color %></p>
-        <p>Personality: <%= offer.goat.personality %></p>
-        <p>Weight: <%= offer.goat.weight %></p>
-        <p>Age: <%= offer.goat.age %></p>
-        <%= link_to "Show me the Goat", goat_path(offer.goat) %>
+    <% if offer.confirmed? %>
+      <div class="card-goat">
+        <% if offer.goat.photo.attached? %>
+          <%= cl_image_tag offer.goat.photo.key, height: 400, width: 400, crop: :fill %>
+        <% else %>
+          <%= image_tag "nogoat.jpg", alt: "No image available", height: 400, width: 400, crop: :fill %>
+        <% end %>
+        <div class="card-goat-infos">
+          <div class="goat-info">
+            <h2><%= link_to offer.goat.name, goat_path(offer.goat) %></h2>
+            <p>Price: $<%= offer.goat.price %></p>
+            <p>Color: <%= offer.goat.color.capitalize %></p>
+            <p>Personality: <%= offer.goat.personality %></p>
+            <p>Weight: <%= offer.goat.weight %>kg</p>
+            <p>Age: <%= offer.goat.age %> years</p>
+          </div>
+          <div class="rental-info">
+            <% if offer.goat.offers.any? { |offer| offer.status == "confirmed" } %>
+              <p class="btn btn-success disabled">on rent!</p>
+            <% end %>
+          </div>
+        </div>
       </div>
-    </div>
+    <% end %>
   <% end %>
 </div>
