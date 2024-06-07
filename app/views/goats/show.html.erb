@@ -36,11 +36,11 @@
       </div>
     </div>
   </div>
-  <div>
-    <%= link_to "Back to all Goats", goats_path, class: "btn btn-dark mt-3" %>
-    <%= link_to "Edit Goat", edit_goat_path(@goat), class: "btn btn-dark mt-3" %>
-    <%= link_to "Leave a Review", new_goat_review_path(@goat), class: "btn btn-dark mt-3" %>
-    <%= link_to "Delete Goat", goat_path(@goat), class: "btn btn-dark mt-3", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+  <div class="buttons">
+    <button><%= link_to "Back to all Goats", goats_path%></button>
+    <button><%= link_to "Edit Goat", edit_goat_path(@goat)%></button>
+    <button><%= link_to "Leave a Review", new_goat_review_path(@goat)%></button>
+    <button><%= link_to "Delete Goat", goat_path(@goat),data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></button>
   </div>
     <div class="review border-top">
       <h1>Reviews</h1>
