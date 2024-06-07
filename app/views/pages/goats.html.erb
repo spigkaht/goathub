@@ -33,27 +33,24 @@
       <div class="offer-card">
         <h2>Offers</h2>
         <% @offers.each do |offer| %>
-          <div class="card-offer">
-            <p><strong>Goat:</strong> <%= offer.goat.name %></p>
-            <p><strong>Booker:</strong> <%= offer.user.first_name %></p>
-            <p><strong>Contact:</strong> <%= offer.user.email %></p>
-            <p><strong>Price:</strong> $<%= offer.price %></p>
-            <p><strong>Start Date:</strong> <%= offer.start_date %></p>
-            <p><strong>End Date:</strong> <%= offer.end_date %></p>
-            <p><%= offer.status %></p>
-            <div class="offer-buttons">
-              <p class="btn btn-primary"> <%= link_to "accept", goat_offer_path(offer.goat_id, offer.id, status: "confirmed"), data: { turbo_method: :patch} %></p>
-              <p class="btn btn-danger"> <%= link_to "decline", goat_offer_path(offer.goat_id, offer.id, status: "rejected"), data: { turbo_method: :patch} %></p>
+          <% if offer.draft? %>
+            <div class="card-offer">
+              <p><strong>Goat:</strong> <%= offer.goat.name %></p>
+              <p><strong>Booker:</strong> <%= offer.user.first_name %></p>
+              <p><strong>Contact:</strong> <%= offer.user.email %></p>
+              <p><strong>Price:</strong> $<%= offer.price %></p>
+              <p><strong>Start Date:</strong> <%= offer.start_date %></p>
+              <p><strong>End Date:</strong> <%= offer.end_date %></p>
+              <p><strong># Days:</strong> <%= (offer.end_date - offer.start_date).to_i %></p>
+              <p><strong>Total Price:</strong> $<%= (offer.end_date - offer.start_date).to_i * offer.price %></p>
+              <div class="offer-buttons">
+                <p class="btn btn-primary"> <%= link_to "accept", goat_offer_path(offer.goat_id, offer.id, status: "confirmed"), data: { turbo_method: :patch} %></p>
+                <p class="btn btn-danger"> <%= link_to "decline", goat_offer_path(offer.goat_id, offer.id, status: "rejected"), data: { turbo_method: :patch} %></p>
+              </div>
             </div>
-          </div>
+          <% end %>
         <% end %>
       </div>
     </div>
   </div>
 </div>
-
-<%# <div data-controller="sfx" data-sfx-correct-value="<%= !!@correct %>"> %>
-
-<%# <%= audio_tag "Bahhhh.mp3", controls: true, data: { sfx_target: "sound" }, style: "" %> %>
-
-<%# </div> %>

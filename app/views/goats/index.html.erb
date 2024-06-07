@@ -11,14 +11,21 @@
           <% else %>
             <%= image_tag "nogoat.jpg", alt: "No image available", height: 400, width: 400, crop: :fill %>
           <% end %>
-          <div class="card-trip-infos">
-            <h2><%= link_to goat.name, goat_path(goat) %></h2>
-            <p>Price: $<%= goat.price %></p>
-            <p>Color: <%= goat.color.capitalize %></p>
-            <p>Personality: <%= goat.personality %></p>
-            <p>Weight: <%= goat.weight %>kg</p>
-            <p>Age: <%= goat.age %> years</p>
-            <p>Owner: <%= goat.user.email %></p>
+          <div class="d-flex justify-content-between align-items-end">
+            <div class="card-trip-infos">
+              <h2><%= link_to goat.name, goat_path(goat) %></h2>
+              <p>Price: $<%= goat.price %></p>
+              <p>Color: <%= goat.color.capitalize %></p>
+              <p>Personality: <%= goat.personality %></p>
+              <p>Weight: <%= goat.weight %>kg</p>
+              <p>Age: <%= goat.age %> years</p>
+              <p>Owner: <%= goat.user.email %></p>
+            </div>
+            <div class="rental-info p-3">
+              <% if goat.offers.any? { |offer| offer.status == "confirmed" } %>
+                <p class="btn btn-success disabled">on rent!</p>
+              <% end %>
+            </div>
           </div>
         </div>
       <% end %>
