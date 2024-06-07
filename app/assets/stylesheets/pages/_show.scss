@@ -4,6 +4,7 @@
 }
 
 .container-show {
+  // width: min-content;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -16,7 +17,9 @@ img {
 }
 
 .info-card {
-  margin-left: 1rem;
+  border-radius: 5px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.2);
+  margin-left: 2rem;
   padding: 0.2rem 1rem;
   background-color: white;
  }
@@ -32,7 +35,7 @@ p {
 }
 // v------------Reviews-----------v
 .review {
-  width: 46.3rem;
+  width: 100%;
   margin-top: 15px;
   padding: 0.2rem 1rem;
 }
@@ -43,8 +46,9 @@ p {
   // box-shadow: 0 0 15px black;
 }
 .review-card {
+  margin-bottom: 12px;
   background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  box-shadow: 0 0 8px rgba(0,0,0,0.2);
   border: 1px solid lightgray;
   border-radius: 5px;
   padding: 5px;
