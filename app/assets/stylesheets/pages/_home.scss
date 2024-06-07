@@ -33,11 +33,12 @@
 .links {
   color: #FCA311;
   text-decoration: none;
+  transition: 1s;
 }
 
 .links:hover {
-  transition: 1s;
   text-decoration: underline;
+  color: black;
 }
 
 .lower-half {
